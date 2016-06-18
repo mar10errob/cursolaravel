@@ -16,15 +16,15 @@ Route::get('crea/fabricantes', function () {
 	foreach ($nombres as $nombre) {
 		$fabricante = new App\Fabricante;
 		$fabricante->nombre = $nombre;
-		$fabricante->save();	
+		$fabricante->save();
 	}
 	return "Se han agregado los fabricantes";
 });
 
 Route::get('crea/vehiculos', function(){
 	$fabricantes = App\Fabricante::count();
-	for ($j=1; $j <= $fabricantes ; $j++) { 
-		for ($i=1; $i <= 5; $i++) { 
+	for ($j=1; $j <= $fabricantes ; $j++) {
+		for ($i=1; $i <= 5; $i++) {
 			$vehiculo = new App\Vehiculo;
 			$vehiculo->nombre = "Vehiculo".$i;
 			$vehiculo->color = "Verde".$i;
@@ -60,3 +60,8 @@ Route::controller('vehiculos', 'VehiculoController', [
 	'getAll' => 'vehiculos.all',
 	'getShow' => 'vehiculos.show',
 	'getCreate' => 'vehiculos.create']);
+
+Route::get('/', function()
+{
+	return "Hola Mundo";
+});
